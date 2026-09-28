@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warehouse Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Warehouse Management Dashboard</h1>
+
+    <hr>
+
+    <h2>Dashboard</h2>
+
+    <p>Zones: <span id="zoneCount">0</span></p>
+    <p>Bins: <span id="binCount">0</span></p>
+    <p>Stock Records: <span id="stockCount">0</span></p>
+    <p>Orders: <span id="orderCount">0</span></p>
+
+    <hr>
+
+    <h2>Zones</h2>
+
+    <h3>Create New Zone</h3>
+
+    <input type="text" id="zoneName" placeholder="Zone Name">
+
+    <select id="zoneType">
+        <option value="NEAR_DISPATCH">NEAR_DISPATCH</option>
+        <option value="FAR">FAR</option>
+    </select>
+
+    <button onclick="createZone()">Create Zone</button>
+
+    <br><br>
+
+    <button onclick="loadZones()">Load Zones</button>
+
+    <table border="1">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+
+        <tbody id="zoneTable"></tbody>
+
+    </table>
+
+    <hr>
+
+    <h2>Bins</h2>
+
+    <h3>Create New Bin</h3>
+
+    <input type="text" id="binCode" placeholder="Bin Code">
+
+    <input type="number" id="binCapacity" placeholder="Capacity">
+
+    <input type="number" id="binZoneId" placeholder="Zone ID">
+
+    <button onclick="createBin()">Create Bin</button>
+
+    <br><br>
+
+    <button onclick="loadBins()">Load Bins</button>
+
+    <table border="1">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Bin Code</th>
+                <th>Capacity</th>
+                <th>Occupied</th>
+                <th>Zone</th>
+            </tr>
+        </thead>
+
+        <tbody id="binTable"></tbody>
+
+    </table>
+
+    <hr>
+
+    <h2>Stock</h2>
+
+    <h3>Create New Stock</h3>
+
+    <input type="text" id="itemName" placeholder="Item Name">
+
+    <select id="velocity">
+        <option value="FAST">FAST</option>
+        <option value="SLOW">SLOW</option>
+    </select>
+
+    <input type="number" id="stockQuantity" placeholder="Quantity">
+
+    <button onclick="createStock()">Create Stock</button>
+
+    <br><br>
+
+    <button onclick="loadStock()">Load Stock</button>
+
+    <table border="1">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Item</th>
+                <th>Velocity</th>
+                <th>Quantity</th>
+                <th>Bin</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="stockTable"></tbody>
+
+    </table>
+
+    <hr>
+
+    <h2>Orders</h2>
+
+    <h3>Create New Order</h3>
+
+    <input type="text" id="orderItemName" placeholder="Item Name">
+
+    <input type="number" id="orderQuantity" placeholder="Quantity">
+
+    <button onclick="createOrder()">Create Order</button>
+
+    <br><br>
+
+    <button onclick="loadOrders()">Load Orders</button>
+
+    <table border="1">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="orderTable"></tbody>
+
+    </table>
+
+    <hr>
+
+    <h2>Pick List</h2>
+
+    <table border="1">
+
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Item</th>
+                <th>Bin</th>
+                <th>Zone</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+
+        <tbody id="pickListTable"></tbody>
+
+    </table>
+
+    <hr>
+
+    <h2>Reports</h2>
+
+    <button onclick="loadReports()">Load Reports</button>
+
+    <h3>Bin Utilization</h3>
+
+    <table border="1">
+
+        <thead>
+            <tr>
+                <th>Bin</th>
+                <th>Zone</th>
+                <th>Capacity</th>
+                <th>Occupied</th>
+                <th>Utilization</th>
+            </tr>
+        </thead>
+
+        <tbody id="utilizationTable"></tbody>
+
+    </table>
+
+    <h3>Item Velocity</h3>
+
+    <table border="1">
+
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Velocity</th>
+                <th>Quantity</th>
+                <th>Bin</th>
+            </tr>
+        </thead>
+
+        <tbody id="velocityTable"></tbody>
+
+    </table>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
